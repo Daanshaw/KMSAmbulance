@@ -10,7 +10,7 @@ public class PresentationTier {
             System.out.println("Choose form one of the following options:");
             System.out.println("");
             System.out.println("1. Check for any patient info sent from hospital");
-            System.out.println("2. Send callout details to the database");
+            System.out.println("2. Enter and send callout details to the database");
             System.out.println("3. Exit program");
 
             Scanner scanner = new Scanner(System.in);  // Create a Scanner object

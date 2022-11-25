@@ -37,4 +37,30 @@ public class DataTier {
         }
 
     }
+
+    public void insertCallout(Patient patient){
+
+        try{
+            Connection conn = getConnection();
+
+            PreparedStatement insert = conn.prepareStatement("INSERT INTO callout(id, name, surname,acc_desc, datetime, location,action_taken_desc,call_time_sec)" + "VALUES (?,?, ?, ?, ?, ?,?,?,?)");
+
+            insert.setNull(1, 1);
+            insert.setString(2, patient.getName());
+            insert.setString(3, patient.getSurname());
+            insert.setInt(4, patient.getNhsRegistrationNo());
+            insert.setString(5, patient.getAddress());
+            insert.setString(6, patient.getMedicalCondition());
+            insert.setString(7, patient.getMedicalCondition());
+            insert.setString(8, patient.getMedicalCondition());
+
+            insert.executeUpdate();
+
+        } catch (Exception e) {
+            System.out.println(e);
+        }
+        finally {
+            System.out.println("Data inserted successfully.");
+        }
+    }
 }
