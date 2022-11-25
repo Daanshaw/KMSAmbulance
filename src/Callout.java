@@ -11,8 +11,8 @@ public class Callout implements Serializable, Remote {
     private String accDesc;
     private Date datetime;
     private String location;
-    private String action_taken_desc;
-    private int call_time_sec;
+    private String actionTakenDesc;
+    private int callTimeSec;
 
     @Override
     public String toString() {
@@ -22,8 +22,8 @@ public class Callout implements Serializable, Remote {
                 ", accDesc='" + accDesc + '\'' +
                 ", datetime=" + datetime +
                 ", location='" + location + '\'' +
-                ", action_taken_desc='" + action_taken_desc + '\'' +
-                ", call_time_sec=" + call_time_sec +
+                ", actionTakenDesc='" + actionTakenDesc + '\'' +
+                ", callTimeSec=" + callTimeSec +
                 '}';
     }
 
@@ -51,8 +51,8 @@ public class Callout implements Serializable, Remote {
         this.accDesc = accDesc;
     }
 
-    public Date getDatetime() throws RemoteException {
-        return datetime;
+    public java.sql.Date getDatetime() throws RemoteException {
+        return (java.sql.Date) datetime;
     }
 
     public void setDatetime(Date datetime) throws RemoteException {
@@ -67,29 +67,29 @@ public class Callout implements Serializable, Remote {
         this.location = location;
     }
 
-    public String getAction_taken_desc() throws RemoteException {
-        return action_taken_desc;
+    public String getActionTakenDesc() throws RemoteException {
+        return actionTakenDesc;
     }
 
-    public void setAction_taken_desc(String action_taken_desc) throws RemoteException {
-        this.action_taken_desc = action_taken_desc;
+    public void setActionTakenDesc(String actionTakenDesc) throws RemoteException {
+        this.actionTakenDesc = actionTakenDesc;
     }
 
-    public int getCall_time_sec() throws RemoteException {
-        return call_time_sec;
+    public int getCallTimeSec() throws RemoteException {
+        return callTimeSec;
     }
 
-    public void setCall_time_sec(int call_time_sec) throws RemoteException {
-        this.call_time_sec = call_time_sec;
+    public void setCallTimeSec(int callTimeSec) throws RemoteException {
+        this.callTimeSec = callTimeSec;
     }
 
-    public Callout(String name, String surname, String accDesc, Date datetime, String location, String action_taken_desc, int call_time_sec) {
+    public Callout(String name, String surname, String accDesc, Date datetime, String location, String actionTakenDesc, int callTimeSec) {
         this.name = name;
         this.surname = surname;
         this.accDesc = accDesc;
         this.datetime = datetime;
         this.location = location;
-        this.action_taken_desc = action_taken_desc;
-        this.call_time_sec = call_time_sec;
+        this.actionTakenDesc = actionTakenDesc;
+        this.callTimeSec = callTimeSec;
     }
 }

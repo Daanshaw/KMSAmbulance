@@ -38,7 +38,7 @@ public class DataTier {
 
     }
 
-    public void insertCallout(Patient patient){
+    public void insertCallout(Callout callout){
 
         try{
             Connection conn = getConnection();
@@ -46,13 +46,13 @@ public class DataTier {
             PreparedStatement insert = conn.prepareStatement("INSERT INTO callout(id, name, surname,acc_desc, datetime, location,action_taken_desc,call_time_sec)" + "VALUES (?,?, ?, ?, ?, ?,?,?,?)");
 
             insert.setNull(1, 1);
-            insert.setString(2, patient.getName());
-            insert.setString(3, patient.getSurname());
-            insert.setInt(4, patient.getNhsRegistrationNo());
-            insert.setString(5, patient.getAddress());
-            insert.setString(6, patient.getMedicalCondition());
-            insert.setString(7, patient.getMedicalCondition());
-            insert.setString(8, patient.getMedicalCondition());
+            insert.setString(2, callout.getName());
+            insert.setString(3, callout.getSurname());
+            insert.setString(4, callout.getAccDesc());
+            insert.setDate(5, callout.getDatetime());
+            insert.setString(6, callout.getLocation());
+            insert.setString(7, callout.getActionTakenDesc());
+            insert.setInt(8, callout.getCallTimeSec());
 
             insert.executeUpdate();
 
