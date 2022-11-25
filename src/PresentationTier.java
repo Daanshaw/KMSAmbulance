@@ -4,6 +4,7 @@ import java.util.Scanner;
 public class PresentationTier {
 
     ApplicationTier ap = new ApplicationTier();
+    DataTier dt = new DataTier();
     public void presentationTier() throws SQLException {
         while (true) {
             System.out.println("Welcome to KWIK MEDICAL SYSTEM - Ambulance");
@@ -26,7 +27,10 @@ public class PresentationTier {
             }
             else if(option == 2){
 
-            ap.sendCallout();
+
+                ap.applicationTier();
+
+
 
 
             }

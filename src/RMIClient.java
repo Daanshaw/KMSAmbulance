@@ -2,7 +2,7 @@ import java.io.*;
 import java.rmi.*;
 import java.rmi.registry.*;
 
-public class RMIClient 
+public class RMIClient
 {
 	public static void main(String[] args)
 	{
@@ -11,33 +11,35 @@ public class RMIClient
 			// Set up keyboard input
 			BufferedReader input = new BufferedReader(new InputStreamReader(System.in));
 			System.out.println("RMI Client Program");
-			
+
 			// Get IP address of the RMI Registry
 			System.out.print("Enter IP address of RMI Registry: ");
 			String ip = input.readLine();
-			
+
 			// Connect to the registry
 			Registry registry = LocateRegistry.getRegistry(ip);
-			
+
 			// Get the remotely declared student object
 			PatientInterface patient = (PatientInterface) registry.lookup("patient");
-			
+
 			// Display the current student details
-			System.out.println("Student details:");
+			System.out.println("Patient details:");
 			System.out.println("Name: " + patient.getName());
-			System.out.println("Matric: " + patient.getSurname());
-			System.out.println("Programme: " + patient.getNhsRegistrationNo());
-			
-			// Change the student details
-			System.out.print("Enter new student name: ");
-			String name = input.readLine();
-			patient.setName(name);
-			System.out.print("Enter new student matric: ");
-			String matric = input.readLine();
-			patient.setSurname(matric);
-			System.out.print("Enter new student programme: ");
-			String programme = input.readLine();
-			patient.setNhsRegistrationNo(Integer.parseInt(programme));
+			System.out.println("Surname: " + patient.getSurname());
+			System.out.println("NHS number: " + patient.getNhsRegistrationNo());
+			System.out.println("Address: " + patient.getAddress());
+			System.out.println("Medical condition: " + patient.getMedicalCondition());
+
+//			// Change the student details
+//			System.out.print("Enter new student name: ");
+//			String name = input.readLine();
+//			patient.setName(name);
+//			System.out.print("Enter new student matric: ");
+//			String matric = input.readLine();
+//			patient.setSurname(matric);
+//			System.out.print("Enter new student programme: ");
+//			String programme = input.readLine();
+//			patient.setNhsRegistrationNo(Integer.parseInt(programme));
 		}
 		catch (IOException ioe)
 		{

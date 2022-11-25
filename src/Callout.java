@@ -4,7 +4,7 @@ import java.rmi.RemoteException;
 import java.util.Date;
 
 
-public class Callout implements Serializable, Remote {
+public class Callout implements Serializable, Remote, CalloutInterface {
 
     private String name;
     private String surname;
@@ -27,58 +27,72 @@ public class Callout implements Serializable, Remote {
                 '}';
     }
 
+    @Override
     public String getName() throws RemoteException {
         return name;
     }
 
+    @Override
     public void setName(String name) throws RemoteException {
         this.name = name;
     }
 
+    @Override
     public String getSurname() throws RemoteException {
         return surname;
     }
 
+    @Override
     public void setSurname(String surname) throws RemoteException {
         this.surname = surname;
     }
 
+    @Override
     public String getAccDesc() throws RemoteException {
         return accDesc;
     }
 
+    @Override
     public void setAccDesc(String accDesc) throws RemoteException {
         this.accDesc = accDesc;
     }
 
-    public java.sql.Date getDatetime() throws RemoteException {
-        return (java.sql.Date) datetime;
+    @Override
+    public Date getDatetime() throws RemoteException {
+        return  datetime;
     }
 
+    @Override
     public void setDatetime(Date datetime) throws RemoteException {
         this.datetime = datetime;
     }
 
+    @Override
     public String getLocation() throws RemoteException {
         return location;
     }
 
+    @Override
     public void setLocation(String location) throws RemoteException {
         this.location = location;
     }
 
+    @Override
     public String getActionTakenDesc() throws RemoteException {
         return actionTakenDesc;
     }
 
+    @Override
     public void setActionTakenDesc(String actionTakenDesc) throws RemoteException {
         this.actionTakenDesc = actionTakenDesc;
     }
 
+    @Override
     public int getCallTimeSec() throws RemoteException {
         return callTimeSec;
     }
 
+    @Override
     public void setCallTimeSec(int callTimeSec) throws RemoteException {
         this.callTimeSec = callTimeSec;
     }
